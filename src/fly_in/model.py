@@ -59,8 +59,3 @@ class Connection(BaseModel):
     first: Annotated[Hub, Field()]
     second: Annotated[Hub, Field()]
     max_link_capacity: Annotated[int, Field(default=1, ge=1)]
-
-
-class Parameter(BaseModel):
-    nb_drone: Annotated[int, Field(ge=1)]
-    hub_list: Annotated[Optional[list[Hub]], Field(min_length=2)]

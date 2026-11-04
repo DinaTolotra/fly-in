@@ -27,7 +27,3 @@ def main() -> None:
     print(f"Connection: {len(connections)}")
     for conn in connections:
         print(f"\t{conn.first.hub_name} {conn.second.hub_name} {conn.max_link_capacity}")
-
-
-if __name__ == "__main__":
-    main()
