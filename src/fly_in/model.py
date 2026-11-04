@@ -28,7 +28,7 @@ class HubType(Enum):
             return inf
         else:
             raise ValueError(f"Unknown hub type: {self}")
-    
+
     @property
     def cost(self) -> float:
         if self == HubType.PRIORITY:
@@ -47,15 +47,18 @@ class Hub(BaseModel):
     hub_role: Annotated[HubRole, Field(default=HubRole.HUB)]
     hub_name: Annotated[str, Field(pattern="^[a-zA-Z0-9_]+$")]
     position: Annotated[tuple[float, float], Field()]
-    zone: Annotated[HubType, Field(default=HubType.NORMAL)]
-    color: Annotated[Optional[str], Field(default=None, pattern="^#[0-9a-fA-Z]+$")]
+    type: Annotated[HubType, Field(default=HubType.NORMAL)]
+    color: Annotated[
+        Optional[str],
+        Field(default=None, pattern="^[a-zA-Z0-9]+$")
+    ]
     max_drone: Annotated[int, Field(default=1, ge=1)]
 
 
 class Connection(BaseModel):
     first: Annotated[Hub, Field()]
     second: Annotated[Hub, Field()]
-    max_link_capacity: Annotated[int, Field(default=1, ge=0)]
+    max_link_capacity: Annotated[int, Field(default=1, ge=1)]
 
 
 class Parameter(BaseModel):

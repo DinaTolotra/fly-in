@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by DinaTolotra.*
+*This project has been created as part of the 42 curriculum by todina-r.*
 
 # Fly-in
 
@@ -50,19 +50,10 @@ Zone metadata supports `zone=normal|blocked|restricted|priority`, `color=<word>`
 
 ## Algorithm
 
-The planner uses Dijkstra's algorithm over the undirected zone graph. Each edge cost is determined by the destination zone: restricted zones cost two turns; normal and priority zones cost one; blocked zones are omitted. Priority is a tie-break preference, not a lower movement cost. The chosen route is cached only for the duration of a single planning request; the graph is not modified.
-
-This single-route planner is an initial base, not a fleet optimizer. The full subject requires scheduling multiple drones over discrete turns, accounting for zone and link capacities, and ensuring restricted-zone transit completes on time. That scheduling layer will build on the parsed graph and route costs.
 
 ## Visual Representation
 
-The current CLI reports route and movement-cost information as text. Pygame is retained as a project dependency for the planned graphical view; a network and live drone visualization has not yet been implemented.
 
 ## Resources
 
-- [Python `heapq` documentation](https://docs.python.org/3/library/heapq.html)
-- [Python `dataclasses` documentation](https://docs.python.org/3/library/dataclasses.html)
 - [Dijkstra's algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
-- Project specification: `en.subject.pdf`
-
-AI assistance was used to translate the project specification into an initial package structure and implementation checklist. The parser, data model, and path planner should be reviewed and tested by the project author and peers before being extended into the full simulator.
